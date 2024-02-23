@@ -1,0 +1,7 @@
+.cart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Adjust alignment if needed */
+    margin: 20px; /* Add margin as needed */
+  }
+  

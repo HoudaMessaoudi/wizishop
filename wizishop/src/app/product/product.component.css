@@ -1,0 +1,71 @@
+/* product.component.css */
+
+.product-container {
+  display: flex;
+  width: 670px;
+  height: 250px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+}
+
+.product-picture {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.product-picture img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 170px; /* Set fixed width */
+  height: 170px; /* Set fixed height */
+}
+
+.product-details {
+  flex: 2;
+}
+
+.product-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.product-name span {
+  font-weight: bold;
+}
+
+.quantity-control {
+  margin-bottom: 10px;
+}
+
+.quantity-control div {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.add-to-wishlist {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-to-wishlist button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.add-to-wishlist span {
+  font-weight: bold;
+}

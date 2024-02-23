@@ -1,0 +1,20 @@
+.order-summary-container {
+    width: 160px;
+    height: 270px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .total {
+    font-weight: bold;
+  }
+  .checkout-button:hover {
+    background-color: #45a049;
+  }
+  

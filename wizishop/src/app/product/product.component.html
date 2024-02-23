@@ -1,0 +1,33 @@
+<!-- product.component.html -->
+
+<div class="product-container">
+    <!-- Left Column: Product Picture -->
+    <div class="product-picture">
+      <img [src]= "product.imgUrl" alt="Product Image">
+    </div>
+  
+    <!-- Right Column: Product Details -->
+    <div class="product-details">
+      <!-- First Row: Product Name and 'x' close button -->
+      <div class="product-name">
+        <span>{{ product.productName }}</span>
+        <button (click)="closeProduct()">x</button>
+      </div>
+  
+      <!-- Second Row: Quantity Control -->
+      <div class="quantity-control">
+        <div>
+          <button (click)="decreaseQuantity()">-</button>
+          <span>{{ product.quantity }}</span>
+          <button (click)="increaseQuantity()">+</button>
+        </div>
+      </div>
+  
+      <!-- Third Row: Add to Wishlist and Price x Quantity -->
+      <div class="add-to-wishlist">
+        <button (click)="addToWishlist()">Add to Wishlist</button>
+        <span>{{ product.price * product.quantity }}</span>
+      </div>
+    </div>
+  </div>
+  
