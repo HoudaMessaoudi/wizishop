@@ -1,7 +1,12 @@
+<div class="top-left-container" (click)="handleCartToggle()">
+  <img src="../../assets/pictures/back.png" alt="Back"  class="back-image">
+  <span class="back-text">Back</span>
+</div>
 @if(productMapSize<=0) {
+
   <h3 class="Cart-title">Ops ! there are no elements in the cart</h3>
 }@else{
-  <h3 class="Cart-title">Ops ! there are no elements in the cart</h3>
+  <h3 class="Cart-title">My Cart</h3>
 }
 <div class="cart-container">
   @if(productMapSize<=0) 

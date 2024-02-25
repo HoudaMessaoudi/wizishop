@@ -24,10 +24,11 @@
             @else{
                 @if (product.maximum < 5) {
                     <p class="warning">Only {{ product.maximum}} left in stock !</p>
-                }
-                @if (product.sale > 0) {
-                    <p class="warning">{{ product.sale}}% off!</p>
-                }
+                }@else {
+                    @if (product.sale > 0) {
+                        <p class="warning">{{ product.sale}}% off!</p>
+                    }
+                } 
             }
         </div>
         @if (product.maximum >0){

@@ -12,5 +12,5 @@
       <span>Total:</span>
       <span>{{ total }}</span>
     </div>
-    <button class="checkout-button">Checkout</button>
+    <button (click)="checkout()" [disabled]="subtotal <= 0" class="checkout-button">Checkout</button>
   </div>

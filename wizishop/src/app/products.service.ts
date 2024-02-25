@@ -30,22 +30,23 @@ export class ProductsService {
 
   ];
   private static accessoriesProducts: Product[] = [
-    {id:1,productName: 'Necklace',imgUrl: '../assets/products/accessories/1.jpg',price: 100,quantity: 0,maximum:5,sale:0},
-    {id:1,productName: 'Red earings',imgUrl: '../assets/products/accessories/2.jpg',price: 100,quantity: 0,maximum:5,sale:0},
-    {id:1,productName: 'Sunglasses',imgUrl: '../assets/products/accessories/3.jpg',price: 100,quantity: 0,maximum:5,sale:0},
+    {id:17,productName: 'Necklace',imgUrl: '../assets/products/accessories/1.jpg',price: 100,quantity: 0,maximum:5,sale:0},
+    {id:18,productName: 'Red earings',imgUrl: '../assets/products/accessories/2.jpg',price: 100,quantity: 0,maximum:5,sale:0},
+    {id:19,productName: 'Sunglasses',imgUrl: '../assets/products/accessories/3.jpg',price: 100,quantity: 0,maximum:5,sale:0},
 
 
   ];
   private static electroProducts: Product[] = [
-    {id:1,productName: 'Iphone',imgUrl: '../assets/products/electro/1.jpg',price: 100,quantity: 0,maximum:5,sale:0},
-    {id:1,productName: 'Laptop',imgUrl: '../assets/products/electro/2.jpg',price: 100,quantity: 0,maximum:5,sale:0},
-    {id:1,productName: 'Tablet',imgUrl: '../assets/products/electro/3.jpg',price: 100,quantity: 0,maximum:5,sale:0},
-    {id:1,productName: 'Headphones',imgUrl: '../assets/products/electro/4.jpg',price: 100,quantity: 0,maximum:5,sale:0},
+    {id:20,productName: 'Iphone',imgUrl: '../assets/products/electro/1.jpg',price: 100,quantity: 0,maximum:5,sale:0},
+    {id:21,productName: 'Laptop',imgUrl: '../assets/products/electro/2.jpg',price: 100,quantity: 0,maximum:5,sale:0},
+    {id:22,productName: 'Tablet',imgUrl: '../assets/products/electro/3.jpg',price: 100,quantity: 0,maximum:5,sale:0},
+    {id:23,productName: 'Headphones',imgUrl: '../assets/products/electro/4.jpg',price: 100,quantity: 0,maximum:5,sale:0},
   ];
 
   constructor() { }
 
   static getLimitedProducts(): Product[] {
+    
     return this.limitedProducts;
   }
 
@@ -63,5 +64,40 @@ export class ProductsService {
 
   static getElectroProducts(): Product[] {
     return this.electroProducts;
+  }
+
+  static updateProduct(id: number,product : Product){
+    function updateProductById(products: Product[], id: number, updatedProductData: Partial<Product>) :Product[]{
+      for (let i = 0; i < products.length; i++) {
+          if (products[i].id === id) {
+            products[i] = { ...products[i], ...updatedProductData };
+            return products;
+          }
+      }
+      return products;
+  }
+
+switch (true) {
+  case (id >= 1 && id < 6): {
+    this.limitedProducts = updateProductById(this.limitedProducts,id,product);
+    break;
+  }
+  case (id >= 6 && id < 12): {
+    this.remiseProducts = updateProductById(this.remiseProducts,id,product);
+    break;
+  }
+  case (id >= 12 && id < 17): {
+    this.beautyProducts = updateProductById(this.beautyProducts,id,product);
+    break;
+  }
+  case (id >= 17 && id < 20): {
+    this.accessoriesProducts = updateProductById(this.accessoriesProducts,id,product);
+    break;
+  }
+  case (id >= 20 && id < 24): {
+    this.accessoriesProducts = updateProductById(this.electroProducts,id,product);
+    break;
+  }
+}
   }
 }

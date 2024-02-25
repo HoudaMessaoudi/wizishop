@@ -23,6 +23,4 @@ export class ProductGridComponent implements OnInit{
     this.remiseProducts = ProductsService.getRemiseProducts();
     this.accessoriesProducts = ProductsService.getAccessoriesProducts();
   }
- 
-
 }

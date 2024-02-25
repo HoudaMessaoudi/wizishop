@@ -22,4 +22,7 @@ export class OrderSummaryComponent implements OnInit {
   get total(): number {
     return this.subtotal + this.tax;
   }
+  checkout(){
+    CartService.checkout();
+  }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './models/Product';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ProductsService } from './products.service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,7 @@ export class CartService {
 
   static updateProduct(product: Product){
     this.addProductToCart(product);
+    console.log(this.productMap);
   }
 
   static getSubTotal(): number {
@@ -46,6 +48,16 @@ export class CartService {
       totalSum += (product.quantity * product.price) - discount;
     });
     return totalSum;
+  }
+  static checkout(){
+    
+    this.productMap.forEach(product =>{
+      product.maximum= product.maximum-product.quantity;
+      product.quantity=0;
+      ProductsService.updateProduct(product.id,product)
+      
+    });
+    this.clearMap();
   }
 
   static isProductInCart(product: Product): boolean {
