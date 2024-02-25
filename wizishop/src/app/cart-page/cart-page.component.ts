@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductListComponent } from "../product-list/product-list.component";
 import { OrderSummaryComponent } from "../order-summary/order-summary.component";
+import { CartService } from '../cart.service';
 
 @Component({
     selector: 'app-cart-page',
@@ -9,6 +10,10 @@ import { OrderSummaryComponent } from "../order-summary/order-summary.component"
     styleUrl: './cart-page.component.css',
     imports: [ProductListComponent, OrderSummaryComponent]
 })
-export class CartPageComponent {
+export class CartPageComponent implements OnInit{
+    ngOnInit(): void {
+        this.productMapSize=CartService.getMapLength();
+    }
+      @Input() productMapSize: number = 0;
 
 }

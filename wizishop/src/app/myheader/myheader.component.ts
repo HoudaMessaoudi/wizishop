@@ -11,15 +11,15 @@ import { Product } from '../models/Product';
   styleUrl: './myheader.component.css'
 })
 export class MyheaderComponent implements OnInit{
-  @Input() cartSize: number = CartService.getSetLength();
+  @Input() cartSize: number = CartService.getMapLength();
 
   @Output() toggleCartView: EventEmitter<void> = new EventEmitter<void>();
   constructor(cartService:CartService){
     
   }
   ngOnInit(): void {
-    CartService.productSet$.subscribe((productList) => {
-      this.cartSize=CartService.getSetLength();
+    CartService.productMap$.subscribe((productList) => {
+      this.cartSize=CartService.getMapLength();
     });
   }
   onSpanClick(): void {

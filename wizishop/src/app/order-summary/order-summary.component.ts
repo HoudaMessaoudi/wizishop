@@ -11,13 +11,13 @@ import { CartService } from '../cart.service';
 export class OrderSummaryComponent implements OnInit {
   
   ngOnInit(): void {
-    CartService.productSet$.subscribe((productList) => {
+    CartService.productMap$.subscribe(() => {
       this.subtotal=CartService.getSubTotal();
     });
   }
   @Input() subtotal: number = CartService.getSubTotal();
   get tax(): number {
-    return this.subtotal * 0.3;
+    return this.subtotal * 0.03;
   }
   get total(): number {
     return this.subtotal + this.tax;

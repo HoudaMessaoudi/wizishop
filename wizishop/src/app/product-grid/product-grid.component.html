@@ -1,29 +1,29 @@
-<h3>Products on Sales !</h3>
+<h3 class="product-category">Products on Sales !</h3>
 <div class="product-grid">
     @for (product of remiseProducts; track $index) {
         <app-product-card [product]="product"></app-product-card>
     }
 </div>
-<h3>Limited products</h3>
+<h3 class="product-category">Limited products</h3>
 <div class="product-grid">
     @for (product of limitedProducts; track $index) {
         <app-product-card [product]="product"></app-product-card>
     }
 </div>
 
-<h3>Electroniques</h3>
+<h3 class="product-category">Electroniques</h3>
 <div class="product-grid">
     @for (product of electroProducts; track $index) {
         <app-product-card [product]="product"></app-product-card>
     }
 </div>
-<h3>Beauty</h3>
+<h3 class="product-category">Beauty</h3>
 <div class="product-grid">
     @for (product of beautyProducts; track $index) {
         <app-product-card [product]="product"></app-product-card>
     }
 </div>
-<h3>accessories</h3>
+<h3 class="product-category">accessories</h3>
 <div class="product-grid">
     @for (product of accessoriesProducts; track $index) {
         <app-product-card [product]="product"></app-product-card>

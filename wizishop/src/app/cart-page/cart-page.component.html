@@ -1,4 +1,16 @@
+@if(productMapSize<=0) {
+  <h3 class="Cart-title">Ops ! there are no elements in the cart</h3>
+}@else{
+  <h3 class="Cart-title">Ops ! there are no elements in the cart</h3>
+}
 <div class="cart-container">
-    <app-product-list></app-product-list>
-    <app-order-summary></app-order-summary>
-  </div> 
+  @if(productMapSize<=0) 
+  {
+  <img src="../../assets/pictures/empty-cart.PNG" alt="Empty Cart" class= "empty-cart-img">
+ 
+  }@else {
+     <app-product-list></app-product-list>
+     <app-order-summary></app-order-summary>
+  }
+</div> 
+

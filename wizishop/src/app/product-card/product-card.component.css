@@ -55,7 +55,7 @@
     -webkit-background-clip: text, border-box;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(to right, #3da9ea 0%, #58ced0 100%);
-    pointer-events: none; /* Disables clicking */
+    pointer-events: none; 
   }
   
   .is-in-cart:hover {
@@ -75,4 +75,18 @@
     right: 0;
     width: 50px; 
     height: auto; 
+}
+.ofs-offer-image{
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 100px; 
+  height: auto; 
+}
+.blur-effect {
+  filter: blur(1px); 
+}
+
+.opacity-effect {
+  opacity: 0.5; 
 }

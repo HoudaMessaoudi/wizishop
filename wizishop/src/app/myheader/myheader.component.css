@@ -103,15 +103,17 @@ header {
   }
     
   .product-count {
-    background-color: #ff0000; /* Red background color, adjust as needed */
-    color: #ffffff; /* White text color */
+    background-color: #ff0000;
+    color: #ffffff;
     border-radius: 50%;
     padding: 5px;
     font-size: 12px;
-    display: inline-block; /* Make the span inline */
+    display: inline-block;
+    position: absolute;
+    top: 0; 
+    right: 0;
   }
 
-  /* Add this to your existing styles or create a new CSS file */
 #right-section {
   position: relative;
   cursor: pointer;
@@ -136,4 +138,9 @@ header {
 
 .option-right-section h3, .option-left-section h3 {
   margin-bottom: 10px;
+}
+.cart-image{
+    width: 25px; 
+    height: auto; 
+    padding-left: 10px;
 }

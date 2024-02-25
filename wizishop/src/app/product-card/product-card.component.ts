@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { CartService } from '../cart.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
@@ -15,7 +16,7 @@ export class ProductCardComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    CartService.productSet$.subscribe(() => {
+    CartService.productMap$.subscribe(() => {
       this.isInCart=CartService.isProductInCart(this.product);
     });
   }

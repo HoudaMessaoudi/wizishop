@@ -2,20 +2,20 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { ProductModule } from "../product/product.module";
 import { CartService } from '../cart.service';
-
+import { CommonModule, KeyValue, KeyValuePipe } from '@angular/common';
 @Component({
     selector: 'app-product-list',
     standalone: true,
     templateUrl: './product-list.component.html',
     styleUrl: './product-list.component.css',
-    imports: [ProductModule]
+    imports: [ProductModule,CommonModule,KeyValuePipe]
 })
 export class ProductListComponent implements OnInit{
   constructor(cartService:CartService){
   }
   ngOnInit(): void {
-    this.productList=CartService.getCartProducts();
+    this.productMap=CartService.getCartProducts();
   }
-  @Input() productList: Set<Product> = new Set();;
+  @Input() productMap: Map<number, Product> = new Map();
   
 }

@@ -9,6 +9,7 @@ import { ProductCardComponent } from "./product-card/product-card.component";
 import { ProductGridComponent } from "./product-grid/product-grid.component";
 import { MainPageComponent } from "./main-page/main-page.component";
 import { CartPageComponent } from "./cart-page/cart-page.component";
+import { CommonModule } from '@angular/common';
 
 
 
@@ -26,7 +27,8 @@ import { CartPageComponent } from "./cart-page/cart-page.component";
         ProductListComponent, 
         OrderSummaryComponent, 
         ProductCardComponent, 
-        ProductGridComponent, 
+        ProductGridComponent,
+        CommonModule, 
         MainPageComponent, 
         CartPageComponent]
 })

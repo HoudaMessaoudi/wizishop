@@ -15,14 +15,14 @@ export class ProductComponent {
 
   increaseQuantity(): void {
     this.product.quantity++;
-    CartService.updateSet(this.product);
+    CartService.updateProduct(this.product);
   }
 
   decreaseQuantity(): void {
     if (this.product.quantity > 1) {
       this.product.quantity--;
     }
-    CartService.updateSet(this.product);
+    CartService.updateProduct(this.product);
   }
 
   addToWishlist(): void {

@@ -1,7 +1,5 @@
 
-    @for (product of productList; track product.productName) {
-        <app-product [product]="product"/>
-    }
-    @empty{
-        <p>Ops ! there are no elements in the cart</p>
-    }
+
+<app-product *ngFor="let entry of productMap | keyvalue" [product]="entry.value"/>
+ 
+

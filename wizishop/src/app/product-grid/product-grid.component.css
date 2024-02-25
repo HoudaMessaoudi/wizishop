@@ -4,3 +4,10 @@
     gap: 16px;
     justify-content: center;
   }
+  .product-category {
+    font-weight: bold; 
+    font-size:xx-large; 
+    margin-left: 50px; 
+    margin-top: 40px; 
+    margin-bottom: 40px;
+  }

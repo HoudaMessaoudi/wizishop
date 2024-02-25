@@ -6,7 +6,7 @@ import { Product } from './models/Product';
 })
 export class ProductsService {
   public static limitedProducts: Product[] = [
-    {id:1,productName: 'White Shoes',imgUrl: '../assets/products/limited/1.jpg',price: 100,quantity: 0,maximum:1,sale:0},
+    {id:1,productName: 'White Shoes',imgUrl: '../assets/products/limited/1.jpg',price: 100,quantity: 0,maximum:0,sale:0},
     {id:2,productName: 'Blue Bag',imgUrl: '../assets/products/limited/2.jpg',price: 100,quantity: 0,maximum:1,sale:0},
     {id:3,productName: 'White suit',imgUrl: '../assets/products/limited/3.jpg',price: 100,quantity: 0,maximum:1,sale:0},
     {id:4,productName: 'Headset',imgUrl: '../assets/products/limited/4.jpg',price: 100,quantity: 0,maximum:1,sale:0},
