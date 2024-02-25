@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../models/Product';
-import { CartService } from '../cart.service';
+import { Product } from '../../../models/Product';
+import { CartService } from '../../../services/cart.service';
 import { CommonModule } from '@angular/common';
 
 
@@ -22,7 +22,6 @@ export class ProductCardComponent implements OnInit{
   }
   @Input() product: Product=
   {id:0,productName: 'Shoes',imgUrl: '../../assets/pictures/blue-shoe.jpg',price: 100,quantity: 0,maximum:5,sale:0};
-   // Assuming Product is an interface or class with properties like imgUrl, productName, price
    isInCart: boolean = false;
 
   addToCart() {

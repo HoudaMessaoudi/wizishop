@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Product } from './models/Product';
+import { Product } from '../models/Product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  // Static arrays for different categories of products
+  // on a normal day this service should have api calls to the backend
+  //to retrieve data then handles them depending on different categories
   public static limitedProducts: Product[] = [
     {id:1,productName: 'White Shoes',imgUrl: '../assets/products/limited/1.jpg',price: 100,quantity: 0,maximum:0,sale:0},
     {id:2,productName: 'Blue Bag',imgUrl: '../assets/products/limited/2.jpg',price: 100,quantity: 0,maximum:1,sale:0},
@@ -14,7 +17,7 @@ export class ProductsService {
   ];
   private static remiseProducts: Product[] = [
     {id:6,productName: 'Blue hoodie',imgUrl: '../assets/products/remise/1.jpg',price: 100,quantity: 0,maximum:5,sale:15},
-    {id:7,productName: 'Aestatic dress',imgUrl: '../assets/products/remise/2.jpg',price: 100,quantity: 0,maximum:5,sale:5},
+    {id:7,productName: 'Navy blue Dress',imgUrl: '../assets/products/remise/2.jpg',price: 100,quantity: 0,maximum:5,sale:5},
     {id:8,productName: 'Belt',imgUrl: '../assets/products/remise/3.jpg',price: 100,quantity: 0,maximum:5,sale:25},
     {id:9,productName: 'Swan earings',imgUrl: '../assets/products/remise/4.jpg',price: 100,quantity: 0,maximum:5,sale:55},
     {id:10,productName: 'Kitchen gadgets',imgUrl: '../assets/products/remise/5.jpg',price: 100,quantity: 0,maximum:5,sale:65},
@@ -26,15 +29,11 @@ export class ProductsService {
     {id:14,productName: 'liquid shadowing',imgUrl: '../assets/products/beauty/3.jpg',price: 100,quantity: 0,maximum:5,sale:0},
     {id:15,productName: 'Red Lipstick',imgUrl: '../assets/products/beauty/4.jpg',price: 100,quantity: 0,maximum:5,sale:0},
     {id:16,productName: 'Brushes',imgUrl: '../assets/products/beauty/5.jpg',price: 100,quantity: 0,maximum:5,sale:0},
-
-
   ];
   private static accessoriesProducts: Product[] = [
     {id:17,productName: 'Necklace',imgUrl: '../assets/products/accessories/1.jpg',price: 100,quantity: 0,maximum:5,sale:0},
     {id:18,productName: 'Red earings',imgUrl: '../assets/products/accessories/2.jpg',price: 100,quantity: 0,maximum:5,sale:0},
     {id:19,productName: 'Sunglasses',imgUrl: '../assets/products/accessories/3.jpg',price: 100,quantity: 0,maximum:5,sale:0},
-
-
   ];
   private static electroProducts: Product[] = [
     {id:20,productName: 'Iphone',imgUrl: '../assets/products/electro/1.jpg',price: 100,quantity: 0,maximum:5,sale:0},
@@ -45,8 +44,7 @@ export class ProductsService {
 
   constructor() { }
 
-  static getLimitedProducts(): Product[] {
-    
+  static getLimitedProducts(): Product[] { 
     return this.limitedProducts;
   }
 
@@ -65,8 +63,9 @@ export class ProductsService {
   static getElectroProducts(): Product[] {
     return this.electroProducts;
   }
-
+// On checkout, we update each prodcut maximum value
   static updateProduct(id: number,product : Product){
+    //function to dynamically handle product arrays
     function updateProductById(products: Product[], id: number, updatedProductData: Partial<Product>) :Product[]{
       for (let i = 0; i < products.length; i++) {
           if (products[i].id === id) {

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../models/Product';
+import { Product } from '../../../models/Product';
 import { ProductModule } from "../product/product.module";
-import { CartService } from '../cart.service';
+import { CartService } from '../../../services/cart.service';
 import { CommonModule, KeyValue, KeyValuePipe } from '@angular/common';
 @Component({
     selector: 'app-product-list',

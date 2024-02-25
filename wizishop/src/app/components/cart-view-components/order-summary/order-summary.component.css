@@ -5,13 +5,11 @@
     padding: 10px;
     font-family: "Figtree";
   }
-  
   .summary-item {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
   }
-  
   .total {
     font-weight: bold;
   }

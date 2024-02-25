@@ -1,8 +1,8 @@
 
-
+/* Component for product card on cart list */
 import { Component, Input } from '@angular/core';
-import { Product } from '../models/Product';
-import { CartService } from '../cart.service';
+import { Product } from '../../../models/Product';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -30,6 +30,5 @@ export class ProductComponent {
   }
   deleteProduct(){
     CartService.deleteProductFromCart(this.product);
-    console.log(CartService.getCartProducts);
   }
 }

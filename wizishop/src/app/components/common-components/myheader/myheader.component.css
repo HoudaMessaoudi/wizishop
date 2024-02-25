@@ -1,12 +1,11 @@
-/* header.component.css */
 
 header {
   position: fixed; /* Make the header fixed */
-  top: 0; /* Position it at the top of the viewport */
-  left: 0; /* Align it to the left */
-  right: 0; /* Align it to the right */
-  z-index: 1000; /* Set a high z-index to keep it on top of other elements */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow to the bottom */
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   color: #000000;
   font-family: 'Figtree', 'Nunito Sans', 'Work Sans', sans-serif;
@@ -17,16 +16,16 @@ header {
   }
   
   .logo svg {
-    width: 150px; /* Adjust the width of the logo as needed */
+    width: 150px;
     margin-right: 150px;
   }
   #tarifs::before {
     content: "";
     display: inline-block;
     width: 1px;
-    height: 15px; /* Adjust the height as needed */
+    height: 15px; 
     background-color: gray;
-    margin-right: 5px; /* Adjust the margin as needed */
+    margin-right: 5px; 
   }
   .center-section {
     flex-grow: 1;
@@ -51,7 +50,7 @@ header {
     font-family: 'Figtree', 'Nunito Sans', 'Work Sans', sans-serif;
     cursor: pointer;
     position: relative;
-    padding: 10px; /* Adjust padding as needed */
+    padding: 10px; 
     font-size: 16px;
   }
   
@@ -60,10 +59,10 @@ header {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #000; /* Set your desired underline color */
+    background-color: #000; 
     bottom: 0;
     left: 0;
-    transition: width 0.3s ease; /* Adjust the transition duration as needed */
+    transition: width 0.3s ease; 
   }
   
   .dropdown:hover .dropbtn::before {
@@ -75,23 +74,22 @@ header {
     display: none;
     position: absolute;
     background-color: #ffffff;
-    min-width: 600px; /* Set the width to 600px */
-    border-radius: 2px; /* Set the border-radius to 2px */
+    min-width: 600px;
+    border-radius: 2px;
     z-index: 1;
-    /* Additional styles for the top and bottom border */
-    border-top: 4px solid #45b4e1; /* Set the top border color and thickness */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Set the bottom border color and thickness */
+    border-top: 4px solid #45b4e1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
   }
   
   .dropdown-content a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: #000; /* Set your desired link color */
+    color: #000; 
   }
   
   .dropdown-content a:hover {
-    background-color: #ddd; /* Set your desired hover background color */
+    background-color: #ddd; 
   }
   
   .dropdown:hover .dropdown-content {
@@ -127,8 +125,8 @@ header {
 }
 
 .option-right-section, .option-left-section {
-  flex: 1; /* Adjust this value as needed to manage width */
-  margin-right: 20px; /* Add some spacing between the sections */
+  flex: 1;
+  margin-right: 20px; 
 }
 
 .option-right-section ul, .option-left-section ul {

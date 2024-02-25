@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from "../product-card/product-card.component";
-import { Product } from '../models/Product';
-import { ProductsService } from '../products.service';
+import { Product } from '../../../models/Product';
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
     selector: 'app-product-grid',

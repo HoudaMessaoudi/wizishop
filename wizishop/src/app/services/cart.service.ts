@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from './models/Product';
+import { Product } from '../models/Product';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ProductsService } from './products.service';
 
@@ -7,12 +7,13 @@ import { ProductsService } from './products.service';
   providedIn: 'root'
 })
 export class CartService {
+  //i used a map because its easier to update
   private static productMap: Map<number, Product> = new Map();
   private static productMapSubject: BehaviorSubject<Map<number, Product>> = new BehaviorSubject<Map<number, Product>>(CartService.productMap);
   public static productMap$: Observable<Map<number, Product>> = CartService.productMapSubject.asObservable();
 
   constructor() { }
-
+// get current cart list
   static getCartProducts(): Map<number, Product> {
     return this.productMap;
   }
@@ -30,7 +31,7 @@ export class CartService {
   static getMapLength(): number {
     return this.productMap.size;
   }
-
+// reset the cart- only called after checkout
   static clearMap() {
     this.productMap.clear();
     this.productMapSubject.next(this.productMap);
@@ -38,9 +39,8 @@ export class CartService {
 
   static updateProduct(product: Product){
     this.addProductToCart(product);
-    console.log(this.productMap);
   }
-
+// calculate the total price to pay
   static getSubTotal(): number {
     let totalSum = 0;
     this.productMap.forEach(product => {
@@ -49,21 +49,19 @@ export class CartService {
     });
     return totalSum;
   }
-  static checkout(){
-    
+//checkout and buy the elements in the cart
+  static checkout(){  
     this.productMap.forEach(product =>{
       product.maximum= product.maximum-product.quantity;
-      product.quantity=0;
-      ProductsService.updateProduct(product.id,product)
-      
+      product.quantity=0; // reset selected quantity by user to 0
+      ProductsService.updateProduct(product.id,product)  // update the global products stock 
     });
     setTimeout(() => {
-      this.clearMap();
-    }, 5000);
-    
+      this.clearMap();// i set a timer here so after checkout it doesnt immediately switch screen
+    }, 5000);  // and scare you :D  
   }
 
   static isProductInCart(product: Product): boolean {
-    return this.productMap.has(product.id);
+    return this.productMap.has(product.id); // check if product exists in cart
   }
 }

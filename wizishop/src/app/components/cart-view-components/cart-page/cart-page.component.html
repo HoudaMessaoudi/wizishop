@@ -2,13 +2,15 @@
   <img src="../../assets/pictures/back.png" alt="Back"  class="back-image">
   <span class="back-text">Back</span>
 </div>
-@if(productMapSize<=0) {
 
+@if(productMapSize<=0) { 
+  <!-- handle the case where the cart is empty -->
   <h3 class="Cart-title">There are no elements in the cart</h3>
 }@else{
   <h3 class="Cart-title">My Cart</h3>
 }
 <div class="cart-container">
+  <!-- handle the case where the cart is empty, i separated them for better structure-->
   @if(productMapSize<=0) 
   {
   <img src="../../assets/pictures/empty-cart.PNG" alt="Empty Cart" class= "empty-cart-img">

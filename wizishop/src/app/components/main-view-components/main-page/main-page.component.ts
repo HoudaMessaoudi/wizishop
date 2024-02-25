@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ProductGridComponent } from "../product-grid/product-grid.component";
+import { ProductGridComponent } from '../product-grid/product-grid.component';
+
 
 @Component({
     selector: 'app-main-page',
@@ -9,5 +10,4 @@ import { ProductGridComponent } from "../product-grid/product-grid.component";
     imports: [ProductGridComponent]
 })
 export class MainPageComponent {
-
 }

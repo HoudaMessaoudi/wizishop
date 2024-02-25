@@ -1,7 +1,6 @@
-<!-- product.component.html -->
+
 
 <div class="product-container">
-    <!-- Left Column: Product Picture -->
     <div class="product-picture">
       <img [src]="product.imgUrl" alt="Product Image">
     </div>
@@ -12,8 +11,6 @@
         <span>{{ product.productName }}</span>
         <img (click)="deleteProduct()" src="../../assets/pictures/cancel.png" alt="Close" class="close-btn" >
       </div>
-  
-      <!-- Second Row: Quantity Control -->
       <div class="quantity-control">
         <div class="price-by-unit">
           <span class="definition">Price by unit:</span>
@@ -43,6 +40,7 @@
       
         <div class="total-price" id="total-price">
           <span class="definition">Total:</span>
+          <!-- calculate the total price -->
           <span>€{{(product.price * product.quantity) - (product.sale * 0.01 * product.price * product.quantity) | number:'1.2-2'  }} </span>
         </div>
       </div>
