@@ -3,7 +3,7 @@
 <div class="product-container">
     <!-- Left Column: Product Picture -->
     <div class="product-picture">
-      <img [src]= "product.imgUrl" alt="Product Image">
+      <img [src]="product.imgUrl" alt="Product Image">
     </div>
   
     <!-- Right Column: Product Details -->
@@ -11,7 +11,8 @@
       <!-- First Row: Product Name and 'x' close button -->
       <div class="product-name">
         <span>{{ product.productName }}</span>
-        <button (click)="closeProduct()">x</button>
+        <span>{{ product.price}}</span>
+        <button (click)="deleteProduct()">x</button>
       </div>
   
       <!-- Second Row: Quantity Control -->
@@ -19,15 +20,18 @@
         <div>
           <button (click)="decreaseQuantity()">-</button>
           <span>{{ product.quantity }}</span>
-          <button (click)="increaseQuantity()">+</button>
-        </div>
-      </div>
-  
-      <!-- Third Row: Add to Wishlist and Price x Quantity -->
-      <div class="add-to-wishlist">
-        <button (click)="addToWishlist()">Add to Wishlist</button>
-        <span>{{ product.price * product.quantity }}</span>
-      </div>
+          <button (click)="increaseQuantity()" [disabled]="product.quantity >= product.maximum">
+            +
+          </button>
+       @if (product.quantity >= product.maximum) {
+        <span  class="max-quantity-error">Maximum quantity reached</span>
+       }
     </div>
+    </div>
+     <!-- Third Row: Add to Wishlist and Price x Quantity -->
+     <div class="add-to-wishlist">
+          <span>{{ product.price * product.quantity }}</span>
+    </div>
+   </div>
   </div>
   

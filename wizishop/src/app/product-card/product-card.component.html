@@ -1,15 +1,22 @@
-<div class="product-card-container" (mouseover)="toggleHover()" (mouseout)="toggleHover()" (click)="addToCart()">
-    
-    @if (!isHovered) {
+<div class="product-card-container">
+        @if (product.maximum < 5) {
+            <img src="../../assets/pictures/limited.png" alt="Slimited" class="limited-offer-image">
+        }
+        @if (product.sale > 0) {
+            <img src="../../assets/pictures/sale.png" alt="Slimited" class="sales-offer-image">
+        }
         <img [src]="product.imgUrl" alt="Product Image" class="product-image">
         <div class="product-details">
             <div class="product-name">{{ product.productName }}</div>
             <div class="product-price">{{ product.price }}</div>
-          </div>
-    }
-    @if (isHovered) {
-        <div class="add-to-cart">
-            Add to Cart
+            @if (product.maximum < 5) {
+                <p class="warning">Only {{ product.maximum}} left in stock !</p>
+            }
+            @if (product.sale > 0) {
+                <p class="warning">{{ product.sale}}% off!</p>
+            }
         </div>
-    }
-  </div>
+        <button class="add-to-cart-btn" [class.is-in-cart]="isInCart" [disabled]="isInCart" (click)="addToCart()">
+            {{ isInCart ? 'Added to cart!' : 'Add to Cart' }}
+          </button>
+</div>

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { ProductModule } from "../product/product.module";
+import { CartService } from '../cart.service';
 
 @Component({
     selector: 'app-product-list',
@@ -10,26 +11,11 @@ import { ProductModule } from "../product/product.module";
     imports: [ProductModule]
 })
 export class ProductListComponent implements OnInit{
+  constructor(cartService:CartService){
+  }
   ngOnInit(): void {
-
-    const newProduct1: Product = {
-      productName: 'Shoes',
-      imgUrl: '../../assets/pictures/blue-shoe.jpg',
-      price: 100,
-      quantity: 6,
-    };
-    const newProduct2: Product = {
-      productName: 'Skirt',
-      imgUrl: '../../assets/pictures/skirt.jpg',
-      price: 100,
-      quantity: 6,
-    };
-    this.productList.push(newProduct1,newProduct2);
+    this.productList=CartService.getCartProducts();
   }
-  @Input() productList: Product[] = [];
-
-
-  addProduct(product: Product) {
-    this.productList.push(product);
-  }
+  @Input() productList: Set<Product> = new Set();;
+  
 }

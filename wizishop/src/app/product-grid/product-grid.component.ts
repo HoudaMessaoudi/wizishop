@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from "../product-card/product-card.component";
+import { Product } from '../models/Product';
+import { ProductsService } from '../products.service';
 
 @Component({
     selector: 'app-product-grid',
@@ -8,18 +10,19 @@ import { ProductCardComponent } from "../product-card/product-card.component";
     styleUrl: './product-grid.component.css',
     imports: [ProductCardComponent]
 })
-export class ProductGridComponent {
-  products = [
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/skirt.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/blue-shoe.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/skirt.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/blue-shoe.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/skirt.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/blue-shoe.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/blue-shoe.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/skirt.jpg',price: 100,quantity: 6},
-    {productName: 'Shoes',imgUrl: '../../assets/pictures/blue-shoe.jpg',price: 100,quantity: 6},
-    // Add more products as needed
-  ];
+export class ProductGridComponent implements OnInit{
+  limitedProducts : Product[]=[];
+  beautyProducts : Product[]=[];
+  electroProducts : Product[]=[];
+  remiseProducts : Product[]=[];
+  accessoriesProducts : Product[]=[];
+  ngOnInit(): void {
+    this.limitedProducts = ProductsService.getLimitedProducts();
+    this.beautyProducts = ProductsService.getBeautyProducts();
+    this.electroProducts = ProductsService.getElectroProducts();
+    this.remiseProducts = ProductsService.getRemiseProducts();
+    this.accessoriesProducts = ProductsService.getAccessoriesProducts();
+  }
+ 
 
 }

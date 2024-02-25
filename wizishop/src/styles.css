@@ -1,5 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Figtree&family=Nunito+Sans&family=Work+Sans&display=swap');
+
 body {
-    font-family: 'Figtree', sans-serif; /* Use the correct font-family here */
-  }
-  
+  font-family: 'Figtree', 'Nunito Sans', 'Work Sans', sans-serif;
+  margin: 0;
+  padding-top: 110px;
+}
+.warning{
+  color: red; 
+    font-size: 0.8em; 
+    font-weight: bold; 
+    padding: 5px; 
+    background-color: #ffcccc; 
+    border-radius: 4px; 
+    margin: 3px 0; 
+}

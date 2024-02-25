@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./footer/footer.component";
 import { MyheaderComponent } from "./myheader/myheader.component";
@@ -30,13 +30,17 @@ import { CartPageComponent } from "./cart-page/cart-page.component";
         MainPageComponent, 
         CartPageComponent]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+
+  ngOnInit(): void {
+
+  }
   title = 'wizishop';
   isCartViewToggled: boolean = false;
 
   // Function to handle the toggleCartView event from the child
   handleToggleCartView(): void {
     this.isCartViewToggled = !this.isCartViewToggled;
-    console.log(this.isCartViewToggled);
   }
 }

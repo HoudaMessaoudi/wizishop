@@ -1,3 +1,7 @@
-@for (product of productList; track $index) {
-    <app-product [product]="product"/>
-}
+
+    @for (product of productList; track product.productName) {
+        <app-product [product]="product"/>
+    }
+    @empty{
+        <p>Ops ! there are no elements in the cart</p>
+    }

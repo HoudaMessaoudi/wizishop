@@ -5,9 +5,9 @@
 <main class="main">
   <div class="content">
   <app-myheader (toggleCartView)="handleToggleCartView()"/>
+
     @if (isCartViewToggled) {<app-cart-page/>}
     @else {<app-main-page/>}
-    
   <app-footer/>
   </div>
 </main>

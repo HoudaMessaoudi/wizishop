@@ -7,28 +7,94 @@
   
     <div class="center-section">
       <div class="navigation">
-        <a routerLink="/">Fonctionty</a>
         <div class="dropdown">
-          <button class="dropbtn">Fonctionty</button>
+          <button class="dropbtn">Fonctionnalités ᐯ</button>
           <div class="dropdown-content">
-            <a routerLink="/">Option 1</a>
-            <a routerLink="/">Option 2</a>
-            <a routerLink="/">Option 3</a>
+  <div class="content-section">
+    <div class="option-right-section">
+      <h3>Avantages</h3>
+      <p>Nos atouts & bénéfices uniques</p>
+      
+      <h3>Intelligence artificielle</h3>
+      <p>L’IA au service de votre e-commerce SEO</p>
+        <h3>SEO</h3>
+          <p>Le meilleur SEO au monde</p>
+          <p>Puissance SEO</p>
+          <p>Topic Cluster Manager</p>
+          <p>50+ optimisations SEO</p>
+        
+      
+    </div>
+    <div class="option-left-section">
+      <h3>App Store</h3>
+      <ul>
+        <li>Nos Apps 100% gratuites</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="dropdown">
+          <button class="dropbtn">Références ᐯ</button>
+          <div class="dropdown-content">
+            <div class="content-section">
+              <div class="option-right-section">
+                <h3>Témoignages</h3>
+                <p>Parcours inspirants de nos e-commerçants</p>
+
+                <h3>Parutions Presse</h3>
+                <p>WiziShop dans la presse</p>
+              </div>
+              <div class="option-left-section">
+                <h3>Exemples boutiques</h3>
+                <p>Quelques exemples de boutiques à succès</p>
+              </div>
+             
+            </div>
+            <!-- Add more options as needed -->
           </div>
         </div>
-        <a routerLink="/">Référence tarifs</a>
-        <a routerLink="/">Ressource</a>
-        <a routerLink="/">Blog</a>
+        <div class="dropbtn tarifs">
+          Tarifs
+        </div>
+      
+        <div class="dropdown">
+          <button class="dropbtn">Ressource ᐯ</button>
+          <div class="dropdown-content">
+            <div class="content-section">
+              <div class="option-right-section">
+                <h3>Nouveautés</h3>
+                <p>Les dernières fonctionnalités et innovations</p>
+
+                <h3>Aides & Accompagnement</h3>
+                <p>Les réponses et le support dont vous avez besoin</p>
+
+                <h3>Newsletters</h3>
+                <p>ul li ul li</p>
+              </div>
+              <div class="option-left-section">
+                <h3>Partenaires Experts</h3>
+                <p>Notre réseau de partenaires pour vous aider</p>
+              </div>
+             
+            </div>
+            
+            <!-- Add more options as needed -->
+          </div>
+        </div>
+
+        <a class="dropbtn tarifs" id="tarifs">Blog</a>
       </div>
     </div>
   
-    <div class="right-section" (click)="onSpanClick()">
+    <div id="right-section" (click)="onSpanClick()">
+      My cart
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/>
       </svg>
-      <span class="product-count" >
-        {{ 5 }}
-      </span>
+      <span class="product-count">{{ cartSize }}</span>
     </div>
   </header>
   

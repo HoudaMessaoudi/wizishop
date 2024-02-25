@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -7,13 +8,17 @@ import { Component, Input } from '@angular/core';
   templateUrl: './order-summary.component.html',
   styleUrl: './order-summary.component.css'
 })
-export class OrderSummaryComponent {
-  @Input() subtotal: number = 0;
-
+export class OrderSummaryComponent implements OnInit {
+  
+  ngOnInit(): void {
+    CartService.productSet$.subscribe((productList) => {
+      this.subtotal=CartService.getSubTotal();
+    });
+  }
+  @Input() subtotal: number = CartService.getSubTotal();
   get tax(): number {
     return this.subtotal * 0.3;
   }
-
   get total(): number {
     return this.subtotal + this.tax;
   }

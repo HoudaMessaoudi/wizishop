@@ -2,6 +2,7 @@
 
 import { Component, Input } from '@angular/core';
 import { Product } from '../models/Product';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product',
@@ -12,22 +13,23 @@ export class ProductComponent {
   @Input()
   product!: Product;
 
-
-  closeProduct(): void {
-    // Add logic for closing the product
-  }
-
   increaseQuantity(): void {
     this.product.quantity++;
+    CartService.updateSet(this.product);
   }
 
   decreaseQuantity(): void {
     if (this.product.quantity > 1) {
       this.product.quantity--;
     }
+    CartService.updateSet(this.product);
   }
 
   addToWishlist(): void {
     
+  }
+  deleteProduct(){
+    CartService.deleteProductFromCart(this.product);
+    console.log(CartService.getCartProducts);
   }
 }
