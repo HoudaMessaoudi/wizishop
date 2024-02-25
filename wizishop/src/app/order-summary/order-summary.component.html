@@ -2,15 +2,15 @@
     <h2>Order Summary</h2>
     <div class="summary-item">
       <span>Subtotal:</span>
-      <span>{{ subtotal  }}</span>
+      <span>€{{ subtotal | number:'1.2-2' }}</span>
     </div>
     <div class="summary-item">
       <span>Tax (3%):</span>
-      <span>{{ tax }}</span>
+      <span>€{{ tax | number:'1.2-2' }}</span>
     </div>
     <div class="summary-item total">
       <span>Total:</span>
-      <span>{{ total }}</span>
+      <span>€{{ total | number:'1.2-2'}}</span>
     </div>
     <button (click)="checkout()" [disabled]="subtotal <= 0" class="checkout-button">Checkout</button>
   </div>

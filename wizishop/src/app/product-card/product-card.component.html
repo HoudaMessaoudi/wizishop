@@ -17,7 +17,7 @@
 
         <div class="product-details">
             <div class="product-name">{{ product.productName }}</div>
-            <div class="product-price">{{ product.price }}</div>
+            <div class="product-price">€{{ product.sale === 0 ? (product.price | number:'1.2-2') : ((product.price - product.price * product.sale*0.01) | number:'1.2-2') }}</div>
             @if (product.maximum < 1) {
                 <p class="warning">Out of stock</p>
             }

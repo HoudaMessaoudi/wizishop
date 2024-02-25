@@ -30,7 +30,8 @@ import { CommonModule } from '@angular/common';
         ProductGridComponent,
         CommonModule, 
         MainPageComponent, 
-        CartPageComponent]
+        CartPageComponent,
+      ]
 })
 export class AppComponent implements OnInit {
 

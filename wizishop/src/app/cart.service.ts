@@ -57,7 +57,10 @@ export class CartService {
       ProductsService.updateProduct(product.id,product)
       
     });
-    this.clearMap();
+    setTimeout(() => {
+      this.clearMap();
+    }, 5000);
+    
   }
 
   static isProductInCart(product: Product): boolean {

@@ -17,7 +17,7 @@
       <div class="quantity-control">
         <div class="price-by-unit">
           <span class="definition">Price by unit:</span>
-          <span>{{ product.price }}</span>
+          <span>{{ product.price| currency:'EUR' }}</span>
         </div>
       <br>
         <div>
@@ -43,7 +43,7 @@
       
         <div class="total-price" id="total-price">
           <span class="definition">Total:</span>
-          <span>{{ (product.price * product.quantity) - (product.sale * 0.01 * product.price * product.quantity) }}</span>
+          <span>€{{(product.price * product.quantity) - (product.sale * 0.01 * product.price * product.quantity) | number:'1.2-2'  }} </span>
         </div>
       </div>
       

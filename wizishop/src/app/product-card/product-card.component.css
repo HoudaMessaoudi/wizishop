@@ -27,23 +27,23 @@
   }
   
   .product-price {
-    color: #4caf50; /* Green color for price, adjust as needed */
+    color: #1f264f;
     font-size: 1.2em;
   }
   
   .add-to-cart-btn {
     color: white;
     background: linear-gradient(to right, #3da9ea 0%, #58ced0 100%);
-    border: none; /* Optional: removes the border */
-    padding: 10px 20px; /* Optional: for padding */
-    font-size: 16px; /* Optional: adjust font size */
-    font-weight: bold; /* Makes text bold */
-    cursor: pointer; /* Optional: changes cursor to pointer on hover */
-    transition: transform 0.3s ease; /* Optional: adds a simple transformation effect on click */
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
   }
   
   .add-to-cart-btn:hover {
-    transform: scale(1.05); /* Optional: slightly increases size on hover */
+    transform: scale(1.05); 
   }
   
   .is-in-cart {
