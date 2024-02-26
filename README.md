@@ -1,6 +1,5 @@
 # wizishop
-### ## # ###### WIZISHOP application de e-commerce
-### Inrtroduction
+## Inrtroduction
 
 Ce projet a été vraiment amusant à réaliser ! J'ai vraiment envie d'aller plus loin et de le développer davantage dans les prochains jours (en l'intégrant avec un backend cette fois-ci :D). 
 
@@ -8,33 +7,41 @@ J'ai essayé de m'inspirer du design de l'interface utilisateur du site Web de W
 
 Bien que ce ne soit pas complètement identique, je suis plutôt satisfaite du résultat. J'espère vraiment que cela vous plaît (´◡`)
 
-### Résultat
+## Résultat
 
-####Page Principale
-[![](page principale)](./wizishop/src/assets/doc/main-page.png)
-#####En tête
-[![](header)](./wizishop/src/assets/doc/header.PNG)
-######Accéder à la page du panier
-[![](cart button)](./wizishop/src/assets/doc/cart-btn.png)
+### Page Principale
 
-######Etat des produits
-####### En promotion 
-[![](Product on sales)](./wizishop/src/assets/doc/sales.PNG)
+![(page principale](wizishop/src/assets/doc/main-page.png)
+#### En tête
+![(header](wizishop/src/assets/doc/header.PNG)
+##### Accéder à la page du panier
+![header](wizishop/src/assets/doc/cart-btn.png)
+
+##### Etat des produits
+###### En promotion 
+
 Lorsque product.sale >0 ;
-####### En rupture de stock  
-[![](Product out of stock)](./wizishop/src/assets/doc/out-of-stock.PNG)
+
+![Product on sales](wizishop/src/assets/doc/sales.PNG)
+
+###### En rupture de stock 
 Lorsque product.maximum = 0 ;
-####### Stock limité 
-[![](Limited stock)](./wizishop/src/assets/doc/limited.PNG)
+
+![Product out of stock](./wizishop/src/assets/doc/out-of-stock.PNG)
+###### Stock limité 
+
 Lorsque product.maximum <5 ;
-##### Page Carte
-[![](Product on sales)](./wizishop/src/assets/doc/cart-page.png)
+
+![Limited stock](./wizishop/src/assets/doc/limited.PNG)
+
+#### Page Carte
+![Product on sales](./wizishop/src/assets/doc/cart-page.png)
 ##### Détails de prix de produit
-[![](Product in cart)](./wizishop/src/assets/doc/product-in-cart.PNG)
+![Product in cart](./wizishop/src/assets/doc/product-in-cart.PNG)
 ##### récapitulatif de la commande
-[![](order summary)](./wizishop/src/assets/doc/order-summary.PNG)
+![order summary](./wizishop/src/assets/doc/order-summary.PNG)
 ##### panier vide
-[![](Empty cart)](./wizishop/src/assets/doc/empty-cart.PNG)
+![Empty cart](./wizishop/src/assets/doc/empty-cart.PNG)
 
 ### Structure de projet
 ```
@@ -79,8 +86,7 @@ Lorsque product.maximum <5 ;
 			prix: number; //Prix du produit.
 			quantite: number; //Quantité du produit sélectionnée par l'utilisateur (pas très optimal de la stocker ici :D).
 			maximum: number; //Quantité maximale en stock.
-			promotion: number; //Pourcentage de réduction appliqué au produit.
-	}
+			promotion: number; //Pourcentage de réduction appliqué au produit.}
 
 ```
 ### Dépendances
