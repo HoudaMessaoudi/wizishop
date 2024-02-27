@@ -3,11 +3,14 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../models/Product';
 import { CartService } from '../../../services/cart.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product',
+  standalone: true,
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  imports: [CommonModule]
 })
 export class ProductComponent {
   @Input()

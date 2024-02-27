@@ -8,42 +8,64 @@ import { ProductsService } from './products.service';
 })
 export class CartService {
   //i used a map because its easier to update
-  private static productMap: Map<number, Product> = new Map();
-  private static productMapSubject: BehaviorSubject<Map<number, Product>> = new BehaviorSubject<Map<number, Product>>(CartService.productMap);
+  private static productMapSubject: BehaviorSubject<Map<number, Product>> = new BehaviorSubject<Map<number, Product>>(new Map());
   public static productMap$: Observable<Map<number, Product>> = CartService.productMapSubject.asObservable();
 
-  constructor() { }
-// get current cart list
-  static getCartProducts(): Map<number, Product> {
-    return this.productMap;
+
+  constructor() {
+    CartService.loadCartFromStorage();
   }
 
-  static addProductToCart(product: Product): void {
-    this.productMap.set(product.id, product);
-    this.productMapSubject.next(this.productMap);
+  static loadCartFromStorage(): void {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      const parsedCartArray: [number, Product][] = JSON.parse(storedCart);
+      const parsedCart = new Map<number, Product>(parsedCartArray.map(([key, value]) => [Number(key), value as Product]));
+      this.productMapSubject.next(parsedCart);
+    }
+  }
+
+  static saveCartToStorage(): void {
+    const cartArray = Array.from(this.productMapSubject.getValue().entries());
+    localStorage.setItem('cart', JSON.stringify(cartArray));
+  }
+
+  static getCartProducts(): Map<number, Product> {
+    return this.productMapSubject.getValue();
+  }
+
+   static addProductToCart(product: Product): void {
+    const currentMap = this.productMapSubject.getValue();
+    currentMap.set(product.id, product);
+    this.productMapSubject.next(currentMap);
+    this.saveCartToStorage();
   }
 
   static deleteProductFromCart(product: Product): void {
-    this.productMap.delete(product.id);
-    this.productMapSubject.next(this.productMap);
+    const currentMap = this.productMapSubject.getValue();
+    currentMap.delete(product.id);
+    this.productMapSubject.next(currentMap);
+    this.saveCartToStorage();
   }
+
+  
 
   static getMapLength(): number {
-    return this.productMap.size;
+    return this.productMapSubject.getValue().size;
   }
 // reset the cart- only called after checkout
-  static clearMap() {
-    this.productMap.clear();
-    this.productMapSubject.next(this.productMap);
-  }
-
+ 
+static clearMap(): void {
+  this.productMapSubject.next(new Map());
+  localStorage.removeItem('cart');
+}
   static updateProduct(product: Product){
     this.addProductToCart(product);
   }
 // calculate the total price to pay
   static getSubTotal(): number {
     let totalSum = 0;
-    this.productMap.forEach(product => {
+    this.productMapSubject.getValue().forEach(product => {
       const discount = product.quantity * product.price * product.sale * 0.01;
       totalSum += (product.quantity * product.price) - discount;
     });
@@ -51,17 +73,15 @@ export class CartService {
   }
 //checkout and buy the elements in the cart
   static checkout(){  
-    this.productMap.forEach(product =>{
+    this.productMapSubject.getValue().forEach(product =>{
       product.maximum= product.maximum-product.quantity;
       product.quantity=0; // reset selected quantity by user to 0
       ProductsService.updateProduct(product.id,product)  // update the global products stock 
     });
-    setTimeout(() => {
-      this.clearMap();// i set a timer here so after checkout it doesnt immediately switch screen
-    }, 5000);  // and scare you :D  
+    this.clearMap();  // empty cart :D  
   }
 
   static isProductInCart(product: Product): boolean {
-    return this.productMap.has(product.id); // check if product exists in cart
+    return this.productMapSubject.getValue().has(product.id);
   }
 }

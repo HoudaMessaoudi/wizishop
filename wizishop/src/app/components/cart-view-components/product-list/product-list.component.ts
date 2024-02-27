@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../../models/Product';
-import { ProductModule } from "../product/product.module";
 import { CartService } from '../../../services/cart.service';
 import { CommonModule, KeyValue, KeyValuePipe } from '@angular/common';
+import { ProductComponent } from '../product/product.component';
 @Component({
     selector: 'app-product-list',
     standalone: true,
     templateUrl: './product-list.component.html',
     styleUrl: './product-list.component.css',
-    imports: [ProductModule,CommonModule,KeyValuePipe]
+    imports: [ProductComponent,CommonModule,KeyValuePipe]
 })
 export class ProductListComponent implements OnInit{
   constructor(cartService:CartService){

@@ -42,7 +42,24 @@ export class ProductsService {
     {id:23,productName: 'Headphones',imgUrl: '../assets/products/electro/4.jpg',price: 100,quantity: 0,maximum:5,sale:0},
   ];
 
-  constructor() { }
+  constructor() { 
+    ProductsService.loadProductsFromStorage();
+  }
+
+  static loadProductsFromStorage(): void {
+    this.limitedProducts = JSON.parse(localStorage.getItem('limitedProducts') || '[]') as Product[];
+    this.remiseProducts = JSON.parse(localStorage.getItem('remiseProducts') || '[]') as Product[];
+    this.beautyProducts = JSON.parse(localStorage.getItem('beautyProducts') || '[]') as Product[];
+    this.accessoriesProducts = JSON.parse(localStorage.getItem('accessoriesProducts') || '[]') as Product[];
+    this.electroProducts = JSON.parse(localStorage.getItem('electroProducts') || '[]') as Product[];
+  }
+  static saveProductsToStorage(): void {
+    localStorage.setItem('limitedProducts', JSON.stringify(this.limitedProducts));
+    localStorage.setItem('remiseProducts', JSON.stringify(this.remiseProducts));
+    localStorage.setItem('beautyProducts', JSON.stringify(this.beautyProducts));
+    localStorage.setItem('accessoriesProducts', JSON.stringify(this.accessoriesProducts));
+    localStorage.setItem('electroProducts', JSON.stringify(this.electroProducts));
+  }
 
   static getLimitedProducts(): Product[] { 
     return this.limitedProducts;
@@ -64,16 +81,10 @@ export class ProductsService {
     return this.electroProducts;
   }
 // On checkout, we update each prodcut maximum value
-  static updateProduct(id: number,product : Product){
-    //function to dynamically handle product arrays
-    function updateProductById(products: Product[], id: number, updatedProductData: Partial<Product>) :Product[]{
-      for (let i = 0; i < products.length; i++) {
-          if (products[i].id === id) {
-            products[i] = { ...products[i], ...updatedProductData };
-            return products;
-          }
-      }
-      return products;
+static updateProduct(id: number, product: Product) {
+  // function to update product by ID
+  function updateProductById(products: Product[], id: number, updatedProductData: Product) :Product[]{
+    return products.map(p => p.id === id ? { ...p, ...updatedProductData } : p);
   }
 
 switch (true) {
@@ -98,5 +109,8 @@ switch (true) {
     break;
   }
 }
+
+  // Save the updated product lists to localStorage
+  this.saveProductsToStorage();
   }
 }
